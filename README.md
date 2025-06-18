@@ -1,5 +1,11 @@
 # assign7
 <h1>falling floor</h1>
+<p>This is a game name Falling Floor.
+You are a blue cube, and you like to move continuously.
+You are in a square which is dangerous to you.
+If you change your direction, a piece of tile will fall.
+Beneath the square is a water pool, and sadly you can't swim.
+So if you fall in to it, you die:D</p>
 
 ![Mermaid Chart - Create complex, visual diagrams with text  A smarter way of creating diagrams -2025-06-17-140050](https://github.com/user-attachments/assets/3f4a954b-3c0d-400d-8c65-7b817ddf4397)
 
