@@ -12,6 +12,12 @@ PrintMyID(std::string studId) {
     std::string str = "ID: " + studId;
     std::cout << AnsiPrint(str.c_str(),YELLOW,RED, true, true) << std::endl << std::endl;
 }
+void
+Printf(std::string studId) {
+
+    std::string str = studId;
+    std::cout << AnsiPrint(str.c_str(),YELLOW,RED, true, true) << std::endl << std::endl;
+}
 
 
 
@@ -19,5 +25,11 @@ int main(){
     View view;
     Controller controller(view);
     controller.run();
-    PrintMyID("1137030XX");
+    if(controller.getstatus()==true){
+        Printf("You lose and gwaen-chan-ah.");
+    }else{
+        Printf("serious one lose.");
+    }
+    
+    PrintMyID("113703041");
 }

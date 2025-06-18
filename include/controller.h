@@ -12,6 +12,10 @@ public:
        
     Controller(View&);
     void run();
+    Vec2 getpos();
+    bool collision();
+    bool getstatus();
+    
 private:
 
     void handleInput(int);
@@ -19,7 +23,7 @@ private:
 
     // Model
     std::vector<GameObject*> _objs;
-
+    bool status=false;
     // View
     View& _view; 
 };

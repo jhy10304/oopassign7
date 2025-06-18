@@ -8,7 +8,7 @@ Icon IconFactory::NxMColor(Size size, Color color) {
     std::vector<Cell> row;
 
     for (int w = 0; w < size.width(); ++w) {
-      row.emplace_back(Cell(color, " "));
+      row.emplace_back(Cell(color, "|_"));
     }
 
     icon.emplace_back(row);

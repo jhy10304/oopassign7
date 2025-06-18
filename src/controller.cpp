@@ -8,6 +8,7 @@
 #include "controller.h"
 #include "gameObjectFactory.h"
 
+//比較座標、for()檢查每一個座標
 
 Controller::Controller(View& view) : _view(view){
 
@@ -16,7 +17,17 @@ Controller::Controller(View& view) : _view(view){
         _objs.emplace_back(SimpleGameObjectFactory::randomGameObject());
     }
 }
-
+bool Controller::collision(){
+    for(int i=1;i<_objs.size();i++){
+        if(_objs[0]->getPosition()==_objs[i]->getPosition()){
+            return true;
+        }
+    }
+    return false;
+}
+bool Controller::getstatus(){
+    return status;
+}
 void Controller::run() {
     // initial setup
     std::cin.tie(0);
@@ -35,7 +46,11 @@ void Controller::run() {
 
         // ESC to exit program
         if(input==27)break;
+        if(this->collision()==true){
+            status =true;
+            break;
 
+        }
         this->handleInput(input);
 
         _view.resetLatest();
@@ -46,7 +61,7 @@ void Controller::run() {
 
             _view.updateGameObject(obj);
         }
-
+       
         _view.render();
         end = clock();
         // frame rate normalization
@@ -65,21 +80,26 @@ void Controller::handleInput(int keyInput){
     
     if(keyInput == 'w' || keyInput == 'W'){
         _objs[0]->setDirection(UP);
+        //generate 1 obstacle
+        _objs.emplace_back(SimpleGameObjectFactory::randomGameObjectWithpara(_objs[0]->getPosition()));
     }
 
     if(keyInput == 'a' || keyInput == 'A'){
 
         _objs[0]->setDirection(LEFT);
+        _objs.emplace_back(SimpleGameObjectFactory::randomGameObjectWithpara(_objs[0]->getPosition()));
     }
 
     if(keyInput == 's' || keyInput == 'S'){
 
         _objs[0]->setDirection(DOWN);
+        _objs.emplace_back(SimpleGameObjectFactory::randomGameObjectWithpara(_objs[0]->getPosition()));
     }
 
     if(keyInput == 'd' || keyInput == 'D'){
 
         _objs[0]->setDirection(RIGHT);
+        _objs.emplace_back(SimpleGameObjectFactory::randomGameObjectWithpara(_objs[0]->getPosition()));
     }
 
     if(keyInput == '\t'){

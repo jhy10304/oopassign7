@@ -22,7 +22,7 @@ int displayWidth(const std::string& utf8) {
 
 View::View() {
     std::setlocale(LC_ALL, "");
-    
+    //std::cout<<"Please play the game when waitting for a bus.";
     auto make_str_buf = [] {
         return std::vector<std::vector<std::string>>(
             GAME_WINDOW_HEIGHT, std::vector<std::string>(GAME_WINDOW_WIDTH, ""));
@@ -122,7 +122,7 @@ void View::render(){
     // Bottom line
     frame += '+' + std::string(GAME_WINDOW_WIDTH * GAME_WINDOW_CELL_WIDTH, '-') + "+\n";
 
-    std::cout << "\033[H" << frame << std::flush;
+    std::cout << "\033[H" <<"Please play the game when waitting for a bus."<<std::endl<< frame << std::flush;
 
 
     // update buffer
